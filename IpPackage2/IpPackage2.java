@@ -17,11 +17,18 @@ public class IpPackage2 {
 
     public static IpPackage2 getInstance(int o1,int  o2,int o3,int o4){
 
-        if((o1 >= 0 && o1 <= 255) && (o2 >= 0 && o2 <= 255) && (o3 >= 0 && o3 <= 255) && (o4 >= 0 && o4 <= 255)){
-            return new IpPackage2(o1, o2, o3, o4);
-        }
-        else{
-            throw new IllegalArgumentException("L'adresse ip entrée est incorrecte");
+        try{
+
+            if((o1 > 0 && o1 <= 255) && o2 <= 255 && o3 <= 255 && o4 <= 255){
+                return new IpPackage2(o1, o2, o3, o4);
+            }
+            else{
+                throw new Exception();
+            }
+
+        } catch (Exception e) {
+            System.out.println("L'adresse ip entree est incorrecte");
+            return null;
         }
 
     }
